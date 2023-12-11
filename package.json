@@ -1,13 +1,21 @@
 {
   "name": "vcdrom",
   "displayName": "VCDrom",
-  "version": "0.2.6",
   "description": "VCD viewer for VS Code",
-  "main": "main.js",
-  "browser": "main.js",
+  "version": "0.2.6",
+  "license": "MIT",
   "publisher": "drom",
+  "author": "WaveDrom",
+  "homepage": "https://github.com/wavedrom/vscode-vcdrom#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wavedrom/vscode-vcdrom.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wavedrom/vscode-vcdrom/issues"
+  },
   "engines": {
-    "vscode": "^1.58.0"
+    "vscode": "^1.85.0"
   },
   "categories": [
     "Visualization"
@@ -45,28 +53,22 @@
     "*.vcd": "vcd"
   },
   "scripts": {
-    "test": "eslint main.js",
-    "build": "mkdir -p app && cp node_modules/vcdrom/app/* app"
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wavedrom/vscode-vcdrom.git"
-  },
-  "author": "WaveDrom",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/wavedrom/vscode-vcdrom/issues"
-  },
-  "homepage": "https://github.com/wavedrom/vscode-vcdrom#readme",
   "devDependencies": {
-    "@drom/eslint-config": "^0.10.0",
-    "eslint": "^7.32.0",
-    "vcdrom": "^0.4.2"
-  },
-  "eslintConfig": {
-    "extends": "@drom/eslint-config/eslint4/node8",
-    "parserOptions": {
-      "ecmaVersion": 2020
-    }
+    "@types/vscode": "^1.85.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
+    "eslint": "^8.54.0",
+    "typescript": "^5.3.2",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.8"
   }
 }
