@@ -1,11 +1,11 @@
 {
-  "name": "vcdrom",
+  "name": "vscode-vcdrom",
   "displayName": "VCDrom",
   "description": "VCD viewer for VS Code",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "license": "MIT",
-  "publisher": "drom",
-  "author": "WaveDrom",
+  "publisher": "unaimillan",
+  "author": "unaimillan",
   "homepage": "https://github.com/wavedrom/vscode-vcdrom#readme",
   "repository": {
     "type": "git",
@@ -15,11 +15,12 @@
     "url": "https://github.com/wavedrom/vscode-vcdrom/issues"
   },
   "engines": {
-    "vscode": "^1.85.0"
+    "vscode": "^1.80.0"
   },
   "categories": [
     "Visualization"
   ],
+	"main": "./out/extension.js",
   "activationEvents": [
     "onCommand:vcdrom.start",
     "onLanguage:vcd"
